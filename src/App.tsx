@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import "./App.css";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,11 +13,16 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ListaTemas from "./components/temas/listaTemas/ListaTemas";
 import FormularioTema from "./components/temas/formularioTema/FormularioTema";
 import DeletarTema from "./components/temas/deletarTema/DeletarTema";
+import ListaPostagens from "./components/postagens/ListaPostagens/ListaPostagens";
+import FormularioPostagem from "./components/postagens/FormularioPostagem/FormularioPostagem";
+import DeletarPostagem from "./components/postagens/DeletarPostagem/DeletarPostagem";
+import Perfil from "./pages/perfil/Perfil";
 
 function App() {
   return (
     <>
       <AuthProvider>
+        <ToastContainer />
         <BrowserRouter>
           <Navbar />
           <div className="min-h-[80vh]">
@@ -28,6 +35,20 @@ function App() {
               <Route path="/cadastroTema" element={<FormularioTema />} />
               <Route path="/editarTema/:id" element={<FormularioTema />} />
               <Route path="/deletarTema/:id" element={<DeletarTema />} />
+              <Route path="/postagens" element={<ListaPostagens />} />
+              <Route
+                path="/cadastroPostagem"
+                element={<FormularioPostagem />}
+              />
+              <Route
+                path="/editarPostagem/:id"
+                element={<FormularioPostagem />}
+              />
+              <Route
+                path="/deletarPostagem/:id"
+                element={<DeletarPostagem />}
+              />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />
@@ -36,4 +57,5 @@ function App() {
     </>
   );
 }
+
 export default App;
