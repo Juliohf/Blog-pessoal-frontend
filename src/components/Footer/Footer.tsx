@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import {
   FacebookLogo,
@@ -7,7 +6,7 @@ import {
 } from "@phosphor-icons/react";
 
 function Footer() {
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { usuario } = useContext(AuthContext);
 
   let footerComponent;
 
